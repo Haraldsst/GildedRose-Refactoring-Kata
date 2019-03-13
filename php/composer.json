@@ -1,0 +1,8 @@
+{
+    "require": {
+        "phpunit/phpunit": "^8.0"
+    },
+    "scripts": {
+        "test": "phpunit --bootstrap vendor/autoload.php test/"
+    }
+}
