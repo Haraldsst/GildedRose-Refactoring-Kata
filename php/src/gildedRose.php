@@ -2,38 +2,37 @@
 
 class GildedRose 
 {
-
-    private $items;
-
-    function __construct($items) {
-        $this->items = $items;
-    }
-
     public function updateQuality() 
     {
         foreach ($this->items as $item) {
 
-            if ($item->name == 'Aged Brie') {
+            if (startsWith($item->name, 'Aged Brie')) {
                 $this->handleAgedBrie($item);
                 continue;
             } 
 
-            if ($item->name == 'Sulfuras, Hand of Ragnaros') {
+            if (startsWith($item->name, 'Sulfuras')) {
                 continue;
             }
 
-            if ($item->name == 'Backstage passes to a TAFKAL80ETC concert') {
+            if (startsWith($item->name, 'Backstage passes')) {
                 $this->handleBackstagePass($item);
                 continue;
             }
 
-            if ($item->name == 'Conjured') {
+            if (startsWith($item->name, 'Conjured')) {
                 $this->handleQualityDecrease($item, 2);
                 continue;
             }
 
             $this->handleQualityDecrease($item);
         }
+    }
+
+    private function startsWith($name, $key)
+    {
+         $length = strlen($key);
+         return (substr($name, 0, $length) === $key);
     }
 
     private function handleAgedBrie($item)
