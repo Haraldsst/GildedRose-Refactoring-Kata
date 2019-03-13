@@ -9,4 +9,4 @@ This is my quick approach to Gilded Rose kata. Hello WeSquad.
 ## Install:
 1) Clone or donwload repository
 2) Run "composer install" in terminal
-3) Use "composer test" command for launching tests 
+3) Use "composer test" command from /php folder for launching tests 
