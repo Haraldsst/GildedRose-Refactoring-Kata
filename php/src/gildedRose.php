@@ -2,25 +2,31 @@
 
 class GildedRose 
 {
+    private $items;
+
+    function __construct($items) {
+        $this->items = $items;
+    }
+
     public function updateQuality() 
     {
         foreach ($this->items as $item) {
 
-            if (startsWith($item->name, 'Aged Brie')) {
+            if ($this->startsWith($item->name, 'Aged Brie')) {
                 $this->handleAgedBrie($item);
                 continue;
             } 
 
-            if (startsWith($item->name, 'Sulfuras')) {
+            if ($this->startsWith($item->name, 'Sulfuras')) {
                 continue;
             }
 
-            if (startsWith($item->name, 'Backstage passes')) {
+            if ($this->startsWith($item->name, 'Backstage passes')) {
                 $this->handleBackstagePass($item);
                 continue;
             }
 
-            if (startsWith($item->name, 'Conjured')) {
+            if ($this->startsWith($item->name, 'Conjured')) {
                 $this->handleQualityDecrease($item, 2);
                 continue;
             }
